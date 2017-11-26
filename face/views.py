@@ -1,8 +1,9 @@
 from django.shortcuts import render
-from django.views.generic import FormView
+from django.views.generic import FormView, TemplateView
 from django.http import HttpResponseRedirect
 from redis import Redis
 from .forms import CrawlerForm
+from .models import Price, Product
 
 
 class IndexView(FormView):
@@ -22,3 +23,20 @@ class IndexView(FormView):
             r.lpush('offwhite:start_urls', url)
             return HttpResponseRedirect('/')
 
+
+class PriceView(TemplateView):
+    template_name = 'face/prices.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(PriceView, self).get_context_data(**kwargs)
+        context['prices'] = Price.objects
+        return context
+
+
+class ProductView(TemplateView):
+    template_name = 'face/products.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(ProductView, self).get_context_data(**kwargs)
+        context['products'] = Product.objects
+        return context

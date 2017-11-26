@@ -21,4 +21,6 @@ from face import views
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', views.IndexView.as_view(), name="index"),
+    url(r'^prices/$', views.PriceView.as_view(), name="prices"),
+    url(r'^products/$', views.ProductView.as_view(), name="products"),
 ]

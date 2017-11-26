@@ -1,0 +1,23 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+<div class="container">
+    <table class="table">
+        <tr>
+            <th>product id</th>
+            <th>currency</th>
+            <th>price</th>
+            <th>size</th>
+            <th>color</th>
+            <th>date</th>
+        </tr>
+        {% for price in prices %}
+        <tr>
+            <td>{{price.site_product_id}}</td>
+            <td>{{price.currency}}</td>
+            <td>{{price.price}}</td>
+            <td>{{price.size}}</td>
+            <td>{{price.color}}</td>
+            <td>{{price.date}}</td>
+        </tr>
+        {% endfor%}
+    </table>
+</div>

@@ -1,0 +1,21 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+<div class="container">
+    <table class="table">
+        <tr>
+            <th>id</th>
+            <th>name</th>
+            <th>categories</th>
+            <th>description</th>
+            <th>url</th>
+        </tr>
+        {% for product in products %}
+        <tr>
+            <td>{{product.site_product_id}}</td>
+            <td>{{product.name}}</td>
+            <td>{{product.categories}}</td>
+            <td>{{product.description}}</td>
+            <td><a href="{{product.url}}">link</a></td>
+        </tr>
+        {% endfor%}
+    </table>
+</div>
