@@ -68,7 +68,7 @@ DEFAULT_REQUEST_HEADERS = {
 # Configure item pipelines
 # See http://scrapy.readthedocs.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
-#    'crawler.pipelines.CrawlerPipeline': 300,
+    'crawler.pipelines.CrawlerPipeline': 300,
     'scrapy_redis.pipelines.RedisPipeline': 400,
 }
 
