@@ -7,6 +7,7 @@
             <th>categories</th>
             <th>description</th>
             <th>url</th>
+            <th>images</th>
         </tr>
         {% for product in products %}
         <tr>
@@ -15,6 +16,11 @@
             <td>{{product.categories}}</td>
             <td>{{product.description}}</td>
             <td><a href="{{product.url}}">link</a></td>
+            <td>
+                {% for img in product.images %}
+                <a href="{{img}}">link</a>
+                {% endfor %}
+            </td>
         </tr>
         {% endfor%}
     </table>
