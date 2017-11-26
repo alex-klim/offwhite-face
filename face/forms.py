@@ -2,5 +2,10 @@ from django import forms
 
 
 class CrawlerForm(forms.Form):
-    crawler = forms.CharField(label="crawler", max_length=20)
-    url = forms.URLField(label="url", max_length=100)
+    args = [('offwhite', 'offwhite')]
+    spider = forms.ChoiceField(label='crawler', widget=forms.Select, choices=args)
+    url = forms.URLField(
+        label="url",
+        max_length=500,
+        initial="https://www.off---white.com/en/US/men/t/seasons/ss2018"
+    )
