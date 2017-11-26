@@ -14,11 +14,11 @@ class OffSpider(RedisSpider):
                               + 'following-sibling::ul//label/text()').extract()
         numbas = response.xpath('//h3[contains(text(), "Categories")]/'
                               + 'following-sibling::ul//label/preceding-sibling::input/@value').extract()
-#        for item in numbas:
-#            yield scrapy.Request(url=response.url+"?utf8=%E2%9C%93&f%5Bcategories%5D%5B%5D="+item,
-#            callback=self.parse_category)
-        yield scrapy.Request(url=response.url+"?utf8=%E2%9C%93&f%5Bcategories%5D%5B%5D="+numbas[7],
+        for item in numbas:
+            yield scrapy.Request(url=response.url+"?utf8=%E2%9C%93&f%5Bcategories%5D%5B%5D="+item,
             callback=self.parse_category)
+#        yield scrapy.Request(url=response.url+"?utf8=%E2%9C%93&f%5Bcategories%5D%5B%5D="+numbas[7],
+#            callback=self.parse_category)
 
     def parse_category(self, response):
         items = response.xpath('//section[@class="products"]/article/a/@href').extract()
